@@ -15,5 +15,5 @@ print(f"The approximate volume is {Volume:.2f} liters.")
 
 # Log the information in a text file
 today = date.today()
-with open("tire_volume_log.txt", "a") as log_file:
+with open("volume.txt", "a") as log_file:
     log_file.write(f"{today}, {width}, {aspect_ratio}, {diameter}, {Volume:.2f}\n")
