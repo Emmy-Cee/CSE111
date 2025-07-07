@@ -1,4 +1,12 @@
+# ---
+# Additional Creativity: Password History Logging
+# Each time a password is checked, a record is saved to 'history.txt'.
+# The log includes the date and time, the length of the password, and the strength score (0-5).
+# This helps users and instructors see when password checks were made and how strong the passwords were,
+# without ever saving the actual password for privacy and security.
+# ---
 # Character type list
+import datetime
 
 def main():
     while True:
@@ -8,6 +16,7 @@ def main():
             break
         strength = password_strength(password)
         print(f"Password strength (0-5): {strength}\n")
+        log_password_attempt(password, strength)
         
 LOWER = [
     "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
@@ -75,6 +84,19 @@ def password_strength(password, min_length=10, strong_length=16):
     strength = 1 + complexity
     print(f"Password complexity score: {complexity}. Strength: {strength}.")
     return strength
+
+# This function saves a record of each password check to a file.
+# It does NOT save the actual password, only the time, how long the password was, and the strength score.
+def log_password_attempt(password, strength):
+    """
+    Log password attempt with timestamp, password length, and strength (not the actual password).
+    This helps you see when you checked passwords and how strong they were.
+    """
+    with open("history.txt", "a", encoding="utf-8") as log_file:
+        # Get the current date and time as a string
+        timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        # Write the log entry to the file
+        log_file.write(f"{timestamp} | Length: {len(password)} | Strength: {strength}\n")
 
 if __name__ == "__main__":
     main()
