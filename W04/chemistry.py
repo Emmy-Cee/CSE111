@@ -1,3 +1,4 @@
+# Enhancement: After parsing the formula, the program displays the full element names and their counts in the compound for user clarity and print the chemical formula. This exceeds the base requirements.
 def main():
     formula = input("Enter the chemical formula of the compound: ")
     sample_mass = float(input("Enter the sample mass in grams: "))
@@ -7,11 +8,16 @@ def main():
     symbol_quantity_list = parse_formula(formula, periodic_table)
     molar_mass = compute_molar_mass(symbol_quantity_list, periodic_table)
     molar_mass = round(molar_mass, 3)  # Round to 3 decimal places
-    
-    print(f"Chemical formula: {formula}")
-    print(f"\nMolar mass: {molar_mass:.5f} grams/mole")
+
+    print(f"\nChemical formula: {formula}")
+    print("\nElements in the compound:")
+    for symbol, qty in symbol_quantity_list:
+        name = periodic_table[symbol][0]
+        print(f"  {name} ({symbol}): {qty}")
+    print(f"\nMolar mass: {molar_mass:.3f} grams/mole")
     number_of_moles = sample_mass / molar_mass
-    print(f"Number of moles: {number_of_moles:.5f}")
+    number_of_moles = round(number_of_moles, 3)  # Round to 5 decimal places
+    print(f"Number of moles: {number_of_moles:.3f}")
 
     
 def make_periodic_table():
