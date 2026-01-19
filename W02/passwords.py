@@ -1,3 +1,7 @@
+#Additional Creativity
+# After checking for the strength of the users password, it appends the passwords checked by the user, the date and time it was checked, the lenght of the password 
+# and the strength of the password to a log file .
+
 import datetime
 def main():
     while True:
