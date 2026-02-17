@@ -10,17 +10,29 @@ CSE 111 Proposal for a Student Chosen Program
     knowledge.)
 
 1. What is the title of your program?
+   Class C IPv4 Subnet Calculator
 
 2. What real-world problem will your program address or help to solve?
+   In networking, before building a network you have to assign IPs with it's prefix index in order to provide a range of IPs that will be allocated to the devices connected to it.
+   Most times, the calculation gets very confusing and a user might not perform the calculation properly.
+   This program is to design a Subnetting calculator that will automatically calculate the Prefix index or range of IPs for a particular subnet based on prefix index provided to it.
+   Also, it will calculate the subnet  mask of the IP to be used.
 
 3. What will you learn from developing this program?
+   This program will help me practice and test my knowledge based on what i have learnt throught out this course.
+   Also help me understand more to the basics of developing a Graphical User Interface for users.
 
 4. What Python modules will your program use?
+    pytest, 
 
     (Some examples are: csv, datetime, functools, matplotlib, math,
     pandas, pytest, random, requests, and tkinter.)
 
 5. List the names of functions you will need?
+
+    get_prefix_from_ips()
+    get_total_ips()
+    get_subnet_mask()
 
     (Remember that the most reusable functions don't get user input and
     don't print results but instead have parameters and return a result.
@@ -34,4 +46,8 @@ CSE 111 Proposal for a Student Chosen Program
     to have parameters and return a result.)
 
 6. List the names of the test functions you will write.
+
+    test_get_prefix_from_ips()
+    test_get_total_ips()
+    test_get_subnet_mask()
 

@@ -8,8 +8,16 @@ def main():
     network = input("Enter Class C network (example: 192.168.1.0/24): ")
 
     # Split the IP and the prefix
-    ip_part, prefix_part = network.split("/")
-    base_prefix = int(prefix_part)
+    #To handle the error
+    try:
+        ip_part, prefix_part = network.split("/")
+        base_prefix = int(prefix_part)
+        
+        if base_prefix <= 24 or base_prefix >= 30:
+            print("Class C networks must have a prefix between /24 and /30")
+
+    except ValueError as val_err:
+        print("Invalid format! Please use: IP/Prefix-Index")
 
     # Step 2: Ask what the user wants to do
     print("\nChoose an option:")
